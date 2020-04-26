@@ -76,6 +76,10 @@ define(['browser'], function (browser) {
             return true;
         }
 
+        if (browser.iOS && (browser.iOSVersion || 0) < 11) {
+            return false;
+        }
+
         return videoTestElement.canPlayType('audio/mp4; codecs="ac-3"').replace(/no/, '');
     }
 
